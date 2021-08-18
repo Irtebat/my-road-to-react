@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400');
+@import url("https://fonts.googleapis.com/css?family=Poppins:400");
 
 .expense-item {
   font-family: Poppins;
@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  margin-right: 1rem;
   align-items: flex-end;
   flex-flow: column-reverse;
   justify-content: flex-start;
@@ -24,39 +25,55 @@
   color: #3a3a3a;
   font-size: 1rem;
   flex: 1;
-  margin: 0 1rem;
+  margin: 0 0.5rem 0 1rem;
   color: #000;
 }
 
 .expense-item__price {
-  padding: 15px 30px;
-  font-size: 20px;
-  font-weight: 900;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
   color: #fff;
-  background-color: #f50057;
-  border: 2px solid #f50057;
+  border-radius: 12px;
+  background-color: #2a2a2a;
   width: max-content;
   transition: 0.25s ease;
 }
-  
-.expense-item__price:hover {
-  color: #f50057;
-  background-color: transparent;
+
+.expense-item__button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 12px;
+  background-color: #2a2a2a;
+  width: max-content;
+  transition: 0.25s ease;
 }
-  @media (min-width: 580px) {
-    .expense-item__description {
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-start;
-      flex: 1;
-    }
-  
-    .expense-item__description h2 {
-      font-size: 1.25rem;
-    }
-  
-    .expense-item__price {
-      font-size: 1.25rem;
-      padding: 0.5rem 1.5rem;
-    }
+
+.expense-item__button:hover {
+  background: transparent;
+  color: #000;
+}
+
+@media (min-width: 580px) {
+  .expense-item__description {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
   }
+
+  .expense-item__description h2 {
+    font-size: 1.25rem;
+  }
+
+  .expense-item__price {
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+  }
+  .expense-item__button {
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+  }
+}

@@ -1,3 +1,5 @@
+import React from "react";
+
 import Card from "../Wrapper/Card";
 import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
