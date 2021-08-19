@@ -7,8 +7,8 @@ import "./ExpenseItem.css";
 const ExpenseItem = (props) => {
   const [title, setTitle] = useState(props.title);
 
-  const clickHandler = () => {
-    setTitle("me");
+  const deleteHandler = () => {
+    props.onDeleteItem(props.id);
   };
 
   return (
@@ -18,8 +18,8 @@ const ExpenseItem = (props) => {
         <h2>{title}</h2>
         <div className="expense-item__price">Rs. {props.amount}</div>
       </div>
-      <div className="expense-item__button" onClick={clickHandler}>
-        Change Title
+      <div className="btn btn-danger mx-2" onClick={deleteHandler}>
+        Delete
       </div>
     </Card>
   );

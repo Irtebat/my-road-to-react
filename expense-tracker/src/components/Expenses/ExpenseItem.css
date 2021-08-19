@@ -1,7 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:400");
-
 .expense-item {
-  font-family: Poppins;
   display: flex;
   justify-content: space-between;
   align-items: center;
