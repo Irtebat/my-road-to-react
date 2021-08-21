@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 
 import Card from "../Wrapper/Card";
 import ExpensesFilter from "./ExpensesFilter";
@@ -13,11 +13,13 @@ const Expenses = (props) => {
 
   const expensesFilterHandler = (year) => {
     setyearSelected(year);
+    // eslint-disable-next-line
     if (year == "NA") {
       setItems([...props.items]);
     } else {
       const itemsInProp = [...props.items];
       const filteredItems = itemsInProp.filter((itemInProp) => {
+        // eslint-disable-next-line
         return itemInProp.date.getFullYear() == year;
       });
       setItems(filteredItems);
@@ -32,7 +34,7 @@ const Expenses = (props) => {
     setYearSet(updatedYearSet);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     yearSetHandler();
     setItems(props.items);
     expensesFilterHandler(yearSelected);

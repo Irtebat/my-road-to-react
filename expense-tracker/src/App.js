@@ -18,16 +18,13 @@ const App = () => {
   };
   const deleteExpenseItemHandler = (expenseItemID) => {
     const newExpenses = [...expenses];
+    // eslint-disable-next-line
     setExpenses(newExpenses.filter((expense) => expense.id != expenseItemID));
   };
   return (
     <div className="container-fluid">
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses
-        key={expenses.size}
-        items={expenses}
-        onDelete={deleteExpenseItemHandler}
-      ></Expenses>
+      <Expenses items={expenses} onDelete={deleteExpenseItemHandler}></Expenses>
     </div>
   );
 };
