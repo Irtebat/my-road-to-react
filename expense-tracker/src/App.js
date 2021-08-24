@@ -13,8 +13,9 @@ const App = () => {
     { id: 4, title: "Personal", amount: 5900, date: new Date(2019, 6, 28) },
   ]);
   const addExpenseHandler = (enteredExpenseData) => {
-    const newExpenses = [...expenses, enteredExpenseData];
-    setExpenses(newExpenses);
+    setExpenses((prevExpenses) => {
+      return [...prevExpenses, enteredExpenseData];
+    });
   };
   const deleteExpenseItemHandler = (expenseItemID) => {
     const newExpenses = [...expenses];

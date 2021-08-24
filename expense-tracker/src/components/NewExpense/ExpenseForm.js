@@ -17,7 +17,7 @@ const ExpenseForm = (props) => {
 
   const amountChangeHandler = (e) => {
     setUserInput((prevState) => {
-      return { ...userInput, enteredAmount: e.target.value };
+      return { ...userInput, enteredAmount: parseInt(e.target.value) };
     });
   };
 
@@ -36,13 +36,11 @@ const ExpenseForm = (props) => {
     };
 
     props.onSaveExpenseData(enteredExpenseData);
-
-    setUserInput(() => {
-      return {
-        enteredTitle: "",
-        enteredAmount: "",
-        enteredDate: "",
-      };
+    props.onCancelEdit();
+    setUserInput({
+      enteredTitle: "",
+      enteredAmount: "",
+      enteredDate: "",
     });
   };
 
@@ -76,8 +74,9 @@ const ExpenseForm = (props) => {
           />
         </div>
       </div>
-      <div className="new-expense__action">
+      <div>
         <button type="submit">Submit</button>
+        <button onClick={props.stopEditHandler}>Cancel</button>
       </div>
     </form>
   );

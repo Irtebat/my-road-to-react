@@ -2,9 +2,10 @@ import React, { useState, useLayoutEffect } from "react";
 
 import Card from "../Wrapper/Card";
 import ExpensesFilter from "./ExpensesFilter";
-import ExpenseItem from "./ExpenseItem";
 
 import "./Expenses.css";
+import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 
 const Expenses = (props) => {
   const [items, setItems] = useState(props.items);
@@ -20,7 +21,7 @@ const Expenses = (props) => {
       const itemsInProp = [...props.items];
       const filteredItems = itemsInProp.filter((itemInProp) => {
         // eslint-disable-next-line
-        return itemInProp.date.getFullYear() == year;
+        return itemInProp.date.getFullYear().toString() == year;
       });
       setItems(filteredItems);
     }
@@ -29,8 +30,9 @@ const Expenses = (props) => {
     const updatedYearList = props.items.map((item) => {
       return item.date.getFullYear();
     });
-    const updatedYearSet = Array.from(new Set(updatedYearList)).sort();
-    console.log(updatedYearSet);
+    const updatedYearSet = Array.from(new Set(updatedYearList))
+      .sort()
+      .reverse();
     setYearSet(updatedYearSet);
   };
 
@@ -47,18 +49,8 @@ const Expenses = (props) => {
         selected={yearSelected}
         yearSet={yearSet}
       />
-      {items.map((item) => {
-        return (
-          <ExpenseItem
-            title={item.title}
-            amount={item.amount}
-            date={item.date}
-            key={item.id}
-            id={item.id}
-            onDeleteItem={props.onDelete}
-          ></ExpenseItem>
-        );
-      })}
+      <ExpensesChart expenses={items} />
+      <ExpensesList items={items} onDelete={props.onDelete} />
     </Card>
   );
 };
