@@ -2,10 +2,10 @@ import React, { useState, useLayoutEffect } from "react";
 
 import Card from "../Wrapper/Card";
 import ExpensesFilter from "./ExpensesFilter";
-
-import "./Expenses.css";
 import ExpensesList from "./ExpensesList";
 import ExpensesChart from "./ExpensesChart";
+
+import style from "./Expenses.module.css";
 
 const Expenses = (props) => {
   const [items, setItems] = useState(props.items);
@@ -43,7 +43,7 @@ const Expenses = (props) => {
   }, [props.items]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <Card className="expenses">
+    <Card className={style["expenses"]}>
       <ExpensesFilter
         onFilterChange={expensesFilterHandler}
         selected={yearSelected}

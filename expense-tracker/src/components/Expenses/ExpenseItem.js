@@ -2,7 +2,8 @@ import React from "react";
 
 import Card from "../Wrapper/Card";
 import ExpenseDate from "./ExpenseDate";
-import "./ExpenseItem.css";
+
+import style from "./ExpenseItem.module.css";
 
 const ExpenseItem = (props) => {
   const deleteHandler = () => {
@@ -10,13 +11,13 @@ const ExpenseItem = (props) => {
   };
 
   return (
-    <Card className="expense-item">
+    <Card className={style["expense-item"]}>
       <ExpenseDate date={props.date} />
-      <div className="expense-item__description">
+      <div className={style["expense-item__description"]}>
         <h2>{props.title}</h2>
-        <div className="expense-item__price">Rs. {props.amount}</div>
+        <div className={style["expense-item__price"]}>Rs. {props.amount}</div>
       </div>
-      <div className="expense-item__button" onClick={deleteHandler}>
+      <div className={style["expense-item__button"]} onClick={deleteHandler}>
         Delete
       </div>
     </Card>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./ExpenseForm.css";
+import style from "./ExpenseForm.module.css";
 
 const ExpenseForm = (props) => {
   const [userInput, setUserInput] = useState({
@@ -44,10 +44,15 @@ const ExpenseForm = (props) => {
     });
   };
 
+  const cancelEditHandler = (e) => {
+    e.preventDefault();
+    props.onCancelEdit();
+  };
+
   return (
     <form onSubmit={submitHandler}>
-      <div className="new-expense__controls">
-        <div className="new-expense__control">
+      <div className={style["new-expense__controls"]}>
+        <div className={style["new-expense__control"]}>
           <label>Title</label>
           <input
             type="text"
@@ -55,7 +60,7 @@ const ExpenseForm = (props) => {
             onChange={titleChangeHandler}
           />
         </div>
-        <div className="new-expense__control">
+        <div className={style["new-expense__control"]}>
           <label>Amount</label>
           <input
             type="number"
@@ -63,7 +68,7 @@ const ExpenseForm = (props) => {
             onChange={amountChangeHandler}
           />
         </div>
-        <div className="new-expense__control">
+        <div className={style["new-expense__control"]}>
           <label>Date</label>
           <input
             type="date"
@@ -74,9 +79,9 @@ const ExpenseForm = (props) => {
           />
         </div>
       </div>
-      <div>
+      <div class={style["new-expense__button"]}>
         <button type="submit">Submit</button>
-        <button onClick={props.stopEditHandler}>Cancel</button>
+        <button onClick={cancelEditHandler}>Cancel</button>
       </div>
     </form>
   );

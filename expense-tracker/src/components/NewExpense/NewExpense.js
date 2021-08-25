@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ExpenseForm from "./ExpenseForm";
 
-import "./NewExpense.css";
+import style from "./NewExpense.module.css";
 
 const NewExpense = (props) => {
   const [isEditingFlag, setIsEditingFlag] = useState(false);
@@ -21,13 +21,13 @@ const NewExpense = (props) => {
   // eslint-disable-next-line
   if (isEditingFlag == false) {
     return (
-      <div className="new-expense d-flex justify-content-center">
+      <div className={`${style["new-expense"]} d-flex justify-content-center`}>
         <button onClick={editHandler}>Add new Expense</button>
       </div>
     );
   } else {
     return (
-      <div className="new-expense">
+      <div className={style["new-expense"]}>
         <ExpenseForm
           onSaveExpenseData={saveEnteredExpenseDataHandler}
           onCancelEdit={stopEditHandler}
