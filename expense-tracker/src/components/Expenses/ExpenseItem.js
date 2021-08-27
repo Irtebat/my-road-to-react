@@ -1,6 +1,6 @@
 import React from "react";
 
-import Card from "../Wrapper/Card";
+import Card from "../UI/Card";
 import ExpenseDate from "./ExpenseDate";
 
 import style from "./ExpenseItem.module.css";

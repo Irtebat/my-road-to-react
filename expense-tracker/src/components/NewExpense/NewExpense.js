@@ -5,6 +5,7 @@ import style from "./NewExpense.module.css";
 
 const NewExpense = (props) => {
   const [isEditingFlag, setIsEditingFlag] = useState(false);
+
   const saveEnteredExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = { id: Math.random().toString(), ...enteredExpenseData };
     props.onAddExpense(expenseData);

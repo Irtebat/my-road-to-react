@@ -20,3 +20,12 @@
   width: 20rem;
   max-width: 100%;
 }
+
+.new-expense__controls.invalid input {
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #c42e2e;
+  width: 20rem;
+  max-width: 100%;
+}
