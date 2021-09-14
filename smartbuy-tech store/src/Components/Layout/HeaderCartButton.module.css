@@ -37,7 +37,8 @@
 
 .button:hover .badge,
 .button:active .badge {
-  background-color: #ddd;
+  background-color: #254274;
+  color: white;
 }
 
 .bump {
